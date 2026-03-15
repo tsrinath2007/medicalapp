@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Health - Premium Healthcare</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="ri-heart-pulse-fill"></i>
+                </div>
+                <h2>Med<span>Now</span></h2>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="nav-item active" data-view="dashboard">
+                    <i class="ri-dashboard-line"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-view="medicineFinder">
+                    <i class="ri-medicine-bottle-line"></i>
+                    <span>Medicine Finder</span>
+                </li>
+                <li class="nav-item" data-view="consultTracker">
+                    <i class="ri-stethoscope-line"></i>
+                    <span>Consult Tracker</span>
+                </li>
+                <li class="nav-item" data-view="reportAnalyzer">
+                    <i class="ri-test-tube-line"></i>
+                    <span>Report Analyzer</span>
+                </li>
+                <li class="nav-item" data-view="medicineRecommender">
+                    <i class="ri-star-smile-line"></i>
+                    <span>Recommender <span class="badge">AI</span></span>
+                </li>
+            </ul>
+
+            <div class="user-profile">
+                <img src="https://ui-avatars.com/api/?name=Srinath&background=6366f1&color=fff" alt="User" class="avatar">
+                <div class="user-info">
+                    <h4>Srinath</h4>
+                    <p>Premium Plan</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search conditions, medicines...">
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn notification-btn">
+                        <i class="ri-notification-3-line"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="icon-btn">
+                        <i class="ri-settings-4-line"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="view-container" id="viewContainer">
+                <!-- Dynamic views will be injected here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Overlays & Panels -->
+    <div class="overlay" id="pageOverlay"></div>
+
+    <!-- Notifications Panel -->
+    <aside class="side-panel" id="notificationsPanel">
+        <div class="panel-header">
+            <h3>Notifications</h3>
+            <button class="close-btn" id="closeNotifBtn"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="notification-item unread">
+                <div class="notif-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--accent);">
+                    <i class="ri-calendar-check-line"></i>
+                </div>
+                <div class="notif-text">
+                    <h4>Upcoming Consultation</h4>
+                    <p>Reminder: Appointment with <strong>Dr. Sarah Jenkins</strong> today at 2:30 PM.</p>
+                    <span class="notif-time">Just now</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notif-icon" style="background: rgba(99, 102, 241, 0.1); color: var(--primary);">
+                    <i class="ri-file-list-3-line"></i>
+                </div>
+                <div class="notif-text">
+                    <h4>Report Ready</h4>
+                    <p>Your blood test analysis is ready to view.</p>
+                    <span class="notif-time">2 hours ago</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Settings Panel -->
+    <aside class="side-panel" id="settingsPanel">
+        <div class="panel-header">
+            <h3>Settings</h3>
+            <button class="close-btn" id="closeSettingsBtn"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="settings-group">
+                <h4>Appearance</h4>
+                <div class="theme-toggle" id="themeToggleBtn">
+                    <span class="theme-label"><i class="ri-moon-fill" id="themeIcon"></i> <span id="themeText">Dark Mode</span></span>
+                    <div class="toggle-switch active" id="themeSwitch"></div>
+                </div>
+            </div>
+            
+            <div class="settings-group">
+                <h4>Primary Email (Reports & Checks)</h4>
+                <div class="search-bar" style="width: 100%; margin-top: 8px;">
+                    <i class="ri-mail-line"></i>
+                    <input type="email" placeholder="e.g. srinath@example.com" value="srinath@example.com">
+                </div>
+            </div>
+            
+            <div class="settings-group">
+                <h4>Default Delivery Address</h4>
+                <div class="search-bar" style="width: 100%; margin-top: 8px;">
+                    <i class="ri-map-pin-line"></i>
+                    <input type="text" placeholder="For faster medicine access..." value="123 Health Ave, Hyderabad">
+                </div>
+            </div>
+            
+            <button class="btn-primary" id="saveSettingsBtn" style="width: 100%; margin-top: 24px; justify-content: center;">Save Changes</button>
+        </div>
+    </aside>
+
+    <!-- Transition Overlay -->
+    <div id="transitionOverlay" class="transition-overlay">
+        <div class="transition-content">
+            <svg viewBox="0 0 100 50" class="arc-svg">
+                <path class="arc-path" d="M 10 40 Q 50 -10 90 40" fill="none" stroke="url(#arcGradient)" stroke-width="4" stroke-linecap="round"/>
+                <defs>
+                    <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="var(--primary)" />
+                        <stop offset="100%" stop-color="var(--secondary)" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <h2 class="transition-text">We got it for you!</h2>
+            <p class="transition-subtext">Let's go <i class="ri-arrow-right-line" style="vertical-align: middle;"></i></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/views/dashboard.js"></script>
+    <script src="js/views/medicineFinder.js"></script>
+    <script src="js/views/consultTracker.js"></script>
+    <script src="js/views/reportAnalyzer.js"></script>
+    <script src="js/views/medicineRecommender.js"></script>
+</body>
+</html>
