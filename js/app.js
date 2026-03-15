@@ -31,6 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const needsTransition = ['medicineFinder', 'reportAnalyzer', 'medicineRecommender'].includes(viewName);
 
         if (needsTransition && transitionOverlay) {
+            // Update overlay text dynamically
+            const titleEl = transitionOverlay.querySelector('.transition-text');
+            if (viewName === 'medicineFinder') {
+                titleEl.textContent = "Don't waste your time searching in different sites, we got it covered.";
+                titleEl.style.fontSize = "22px";
+                titleEl.style.lineHeight = "1.4";
+                titleEl.style.padding = "0 20px";
+            } else if (viewName === 'reportAnalyzer') {
+                titleEl.textContent = "Don't waste your time trying to decode complex medical jargon, we got it covered.";
+                titleEl.style.fontSize = "22px";
+                titleEl.style.lineHeight = "1.4";
+                titleEl.style.padding = "0 20px";
+            } else if (viewName === 'medicineRecommender') {
+                titleEl.textContent = "Don't waste your time figuring out which medicine is best, we got it covered.";
+                titleEl.style.fontSize = "22px";
+                titleEl.style.lineHeight = "1.4";
+                titleEl.style.padding = "0 20px";
+            }
+
             // Show transition overlay first
             transitionOverlay.classList.remove('active');
             
